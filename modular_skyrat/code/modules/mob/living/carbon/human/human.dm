@@ -2,7 +2,8 @@
 	. = ..()
 	if(href_list["skyrat_ooc_notes"])
 		if(client)
-			var/str = "[src]'s OOC Notes : <br> <b>ERP :</b> [client.prefs.erppref] <b>| Non-Con :</b> [client.prefs.nonconpref] <b>| Vore :</b> [client.prefs.vorepref]"
+			// var/str = "[src]'s OOC Notes : <br> <b>ERP :</b> [client.prefs.erppref] <b>| Non-Con :</b> [client.prefs.nonconpref] <b>| Vore :</b> [client.prefs.vorepref]" //lumos change
+			var/str = "[src]'s OOC Notes : <br> <b>ERP :</b> [client.prefs.erppref] <b>| Vore :</b> [client.prefs.vorepref]" //lumos change
 			if(client.prefs.extremepref == "Yes")
 				str += "<br><b>Extreme content :</b> [client.prefs.extremepref] <b>| <b>Extreme content harm :</b> [client.prefs.extremeharm]"
 			str += "<br>[html_encode(client.prefs.skyrat_ooc_notes)]"
@@ -64,3 +65,43 @@
 	if(..())
 		if(dna && dna.species)
 			dna.species.spec_revival(src)
+
+/mob/living/carbon/human/species/synthliz
+	race = /datum/species/synthliz
+
+/mob/living/carbon/human/species/synthliz/mangled/Initialize()
+	..()
+	mangle()
+
+/mob/living/carbon/human/species/synth/mangled/Initialize()
+	..()
+	mangle()
+
+/mob/living/carbon/human/species/synth/military/mangled/Initialize()
+	..()
+	mangle()
+
+/mob/living/carbon/human/species/ipc/mangled/Initialize()
+	..()
+	mangle()
+
+/mob/living/carbon/human/species/android/mangled/Initialize()
+	..()
+	mangle()
+
+/mob/living/carbon/human/species/corporate/mangled/Initialize()
+	..()
+	mangle()
+
+/mob/living/carbon/human/proc/mangle()
+	stat = DEAD
+	socks = ""
+	undershirt = ""
+	underwear = ""
+	for(var/obj/item/organ/O in internal_organs)
+		O.Remove()
+		qdel(O)
+	for(var/obj/item/bodypart/BP in bodyparts)
+		if(BP.body_zone != BODY_ZONE_CHEST)
+			BP.drop_limb(TRUE, TRUE, FALSE, TRUE)
+	return TRUE

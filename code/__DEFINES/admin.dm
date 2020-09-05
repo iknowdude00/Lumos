@@ -66,6 +66,11 @@
 #define ADMIN_COORDJMP(src) "[src ? "[COORD(src)] [ADMIN_JMP(src)]" : "nonexistent location"]"
 #define ADMIN_VERBOSEJMP(src) "[src ? "[AREACOORD(src)] [ADMIN_JMP(src)]" : "nonexistent location"]"
 #define ADMIN_INDIVIDUALLOG(user) "(<a href='?_src_=holder;[HrefToken(TRUE)];individuallog=[REF(user)]'>LOGS</a>)"
+// LUMOS EDIT START - RESPAWNREQUEST
+#define ADMIN_RESPAWN_REQUEST_APPROVE(user) "(<a href='?_src_=holder;[HrefToken(TRUE)];respawnrequestapprove=[REF(user)]'>APPROVE</a>)"
+#define ADMIN_RESPAWN_REQUEST_DENY(user) "(<a href='?_src_=holder;[HrefToken(TRUE)];respawnrequestdeny=[REF(user)]'>DENY</a>)"
+#define ADMIN_RESPAWN_REQUEST_MONTY(user)"[ADMIN_RESPAWN_REQUEST_APPROVE(user)] [ADMIN_RESPAWN_REQUEST_DENY(user)] [ADMIN_QUE(user)] [ADMIN_PP(user)]"
+// LUMOS EDIT STOP - RESPAWNREQUEST
 
 #define ADMIN_PUNISHMENT_LIGHTNING "Lightning bolt"
 #define ADMIN_PUNISHMENT_BRAINDAMAGE "Brain damage"
@@ -91,5 +96,24 @@
 #define SPAM_TRIGGER_WARNING	5	//Number of identical messages required before the spam-prevention will warn you to stfu
 #define SPAM_TRIGGER_AUTOMUTE	10	//Number of identical messages required before the spam-prevention will automute you
 
-//SKYRAT COLLAR BAN - now no collar
-#define COLLARBAN	"Collar ban" //Pacification but called that so we dont lose our earlier bans
+//SKYRAT defines
+#define COLLARBAN	"Collar ban" //Pacification ban but called that so we dont lose our earlier bans
+#define ADMIN_PUNISHMENT_CRACK ":B:oneless"
+#define ADMIN_PUNISHMENT_BLEED ":B:loodless"
+#define ADMIN_PUNISHMENT_PERFORATE ":B:erforate"
+#define ADMIN_PUNISHMENT_BURN ":B:urn"
+#define ADMIN_PUNISHMENT_INTERNALBLEED ":B:leed Internally"
+#define ADMIN_PUNISHMENT_WARCRIME "War Crime"
+#define ADMIN_PUNISHMENT_INCISIONIFY "Incisionify"
+#define ADMIN_PUNISHMENT_SCARIFY "Scarify"
+#define ADMIN_PUNISHMENT_NUGGET "Nuggetify"
+#define ADMIN_PUNISHMENT_ONE "Metallica - One"
+#define ADMIN_PUNISHMENT_SHRAPNEL "Shrapnellify"
+#define ADMIN_PUNISHMENT_RAYMAN "Raymannify"
+#define ADMIN_PUNISHMENT_EXTREMITIES "No extremities"
+#define ADMIN_PUNISHMENT_HOLLOW "Hollow"
+#define ADMIN_PUNISHMENT_LIVELEAK "Liveleak"
+#define ADMIN_PUNISHMENT_ISIS "ISIS"
+#define ADMIN_PUNISHMENT_MEDIC "Meet the medic"
+#define ADMIN_PUNISHMENT_PAPAJOHNS "Papa Johns"
+#define ADMIN_PUNISHMENT_PHANTOM_PAIN "Phantom Pain"

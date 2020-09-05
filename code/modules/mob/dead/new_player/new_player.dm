@@ -119,6 +119,11 @@
 		if(!SSticker || !SSticker.IsRoundInProgress())
 			to_chat(usr, "<span class='danger'>The round is either not ready, or has already finished...</span>")
 			return
+		// LUMOS EDIT START - RESPAWNREQUEST
+		if(CheckRespawnedChars(usr))
+			to_chat(usr, "<span class='danger'>You have already played as this character, chose another!</span>")
+			return
+		// LUMOS EDIT STOP - RESPAWNREQUEST
 
 		if(href_list["late_join"] == "override")
 			LateChoices()
@@ -573,7 +578,20 @@
 	if(frn)
 		client.prefs.random_character()
 		client.prefs.real_name = client.prefs.pref_species.random_name(gender,1)
+	//skyrat edit
+	var/cur_scar_index = client.prefs.scars_index
+	if(client.prefs.persistent_scars && client.prefs.scars_list["[cur_scar_index]"])
+		var/scar_string = client.prefs.scars_list["[cur_scar_index]"]
+		var/valid_scars = ""
+		for(var/scar_line in splittext(scar_string, ";"))
+			if(H.load_scar(scar_line))
+				valid_scars += "[scar_line];"
+
+		client.prefs.scars_list["[cur_scar_index]"] = valid_scars
+		client.prefs.save_character()
+
 	client.prefs.copy_to(H)
+	//
 	H.dna.update_dna_identity()
 	if(mind)
 		if(transfer_after)

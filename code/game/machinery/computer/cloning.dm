@@ -1,3 +1,4 @@
+/* moved to modular_skyrat
 #define AUTOCLONING_MINIMAL_LEVEL 4
 
 /obj/machinery/computer/cloning
@@ -63,6 +64,9 @@
 /obj/machinery/computer/cloning/process()
 	if(!(scanner && LAZYLEN(pods) && autoprocess))
 		return
+
+	if(scanner.occupant && scanner.scan_level > 2) //Lumos change - Auto-scans patients at level 2 scanning modules
+		scan_occupant(scanner.occupant)
 
 	for(var/datum/data/record/R in records)
 		var/obj/machinery/clonepod/pod = GetAvailableEfficientPod(R.fields["mind"])
@@ -529,3 +533,4 @@
 	board.records = records
 	scantemp = "Subject successfully scanned."
 	playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, 0)
+*/

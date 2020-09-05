@@ -40,7 +40,7 @@
 	color_src = MATRIXED
 	gender_specific = 0
 	icon = 'modular_citadel/icons/mob/mam_markings.dmi'
-	recommended_species = list("mammal", "xeno", "slimeperson", "podweak")
+	recommended_species = list("anthro", "mammal", "aquatic", "avian", "xeno", "slimeperson", "podweak") //skyrat edit
 
 /datum/sprite_accessory/mam_body_markings/none
 	name = "None"
@@ -222,6 +222,7 @@
 /datum/sprite_accessory/insect_fluff
 	icon = 'icons/mob/wings.dmi'
 	color_src = 0
+	mutant_part_string = "insect_fluff"
 	relevant_layers = list(BODY_FRONT_LAYER)
 
 /datum/sprite_accessory/insect_fluff/none
