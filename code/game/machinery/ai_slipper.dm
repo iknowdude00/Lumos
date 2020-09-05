@@ -1,4 +1,4 @@
-/obj/machinery/ai_slipper
+	/obj/machinery/ai_slipper
 	name = "foam dispenser"
 	desc = "A remotely-activatable dispenser for crowd-controlling foam."
 	icon = 'icons/obj/device.dmi'
